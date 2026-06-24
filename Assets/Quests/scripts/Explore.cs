@@ -1,29 +1,37 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Explore : Quests
 {
-    //protected bool questActive;
-    
-    //void Start()
-    //{
-        
-    //    Name = "Explore";
 
-    //    Debug.log("Quest: " + Name);
 
-    //}
+    void Start()
+    {
+        questActive = false;
+        Name = "Explore";
 
-    //void Update()
-    //{
-    //    if input.GetKeyDown(KeyCode.E)
-    //    {
-    //      bool  questActive = true;
-    //    }
-    //    if (questActive = true)
-    //    {
-    //        Debug.Log("Explore the world!");
-    //    }
-             
-            
-    //}
+        Debug.Log("Quest: " + Name);
+
+    }
+    public override void Reward()
+    {
+        base.Reward();
+        Debug.Log("You feel rewared");
+    }
+
+    void Update()
+    {
+        if (Keyboard.current.eKey.wasPressedThisFrame)
+            { 
+            questActive = true;
+            }
+        if (questActive == true)
+               {
+            Debug.Log("Explore the world!");
+            Reward();
+            questActive = false;
+               }
+
+
+    }
 }

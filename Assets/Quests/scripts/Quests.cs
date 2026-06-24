@@ -2,7 +2,11 @@ using UnityEngine;
 
 public class Quests : MonoBehaviour
 {
-//	public string Name {};
+	protected string Name;
 
-//	protected bool questActive;
-//}
+	protected bool questActive;
+	public virtual void Reward()
+	{
+		Debug.Log("Reward collected");
+	}
+}
